@@ -4,14 +4,14 @@ pipeline {
     stages {
         stage('clean') {
             steps {
-                bat 'mvn clean'
+                sh 'mvn clean'
             }
         }
       
 
          stage('package') {
             steps {
-                bat 'mvn install'
+                sh 'mvn install'
             }
         }
         
@@ -19,7 +19,7 @@ pipeline {
             steps {
                 script {
                     withSonarQubeEnv('sonar'){
-                        bat 'mvn sonar:sonar -DskipTests'
+                        sh 'mvn sonar:sonar -DskipTests'
                      }
                  }
             }
