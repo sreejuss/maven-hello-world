@@ -7,19 +7,21 @@ pipeline {
                 bat 'mvn clean'
             }
         }
-          stage('Sonarqube analysis') {
-            steps {
-                script {
-                    withSonarQubeEnv('sonar'){
-                        sh 'mvn sonar:sonar -DskipTests'
-                     }
-                 }
-            }
-        }
+      
 
          stage('package') {
             steps {
-                bat 'mvn package'
+                bat 'mvn install'
+            }
+        }
+        
+            stage('Sonarqube analysis') {
+            steps {
+                script {
+                    withSonarQubeEnv('sonar'){
+                        bat 'mvn sonar:sonar -DskipTests'
+                     }
+                 }
             }
         }
     }
