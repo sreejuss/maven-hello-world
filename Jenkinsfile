@@ -21,6 +21,7 @@ pipeline {
             steps {
                 script {
                     withSonarQubeEnv('sonar'){
+                        sh 'ls'
                         sh 'mvn sonar:sonar -DskipTests'
                      }
                  }
