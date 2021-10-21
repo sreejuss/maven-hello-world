@@ -17,15 +17,11 @@ pipeline {
             }
         }
         
-            stage('Sonarqube analysis') {
+        stage('package') {
             steps {
-                script {
-                    withSonarQubeEnv('sonar'){
-                        sh 'ls'
-                        sh 'mvn sonar:sonar -DskipTests'
-                     }
-                 }
+                sh 'mvn package'
+                archiveArtifacts artifacts: 'target **/*.jar', followSymlinks: false      
             }
-        }
+        }    
     }
 }
