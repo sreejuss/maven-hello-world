@@ -3,6 +3,7 @@
   <groupId>com.app</groupId>
   <artifactId>com.app</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+ <name>evaluation Maven Webapp</name>
   <properties>
     <maven.compiler.source>1.6</maven.compiler.source>
     <maven.compiler.target>1.6</maven.compiler.target>
